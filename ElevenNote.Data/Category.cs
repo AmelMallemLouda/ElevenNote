@@ -12,7 +12,14 @@ namespace ElevenNote.Data
         [Key]
         public int CategoryId { get; set; }
         [Required]
+        public Guid OwnerId { get; set; }
+
+        [Required]
         public string  CategoryName { get; set; }
+        [Required]
         public string CategoryType { get; set; }
+        [Required]
+        public DateTimeOffset CreatedUtc { get; set; }
+        public DateTimeOffset? ModifiedUtc { get; set; }
     }
 }

@@ -44,7 +44,7 @@ namespace ElevenNote.Services
                 var query =
                     ctx
                         .Notes
-                        .Where(e => e.OwnerId == _userId)// filter of the database. e is for entity
+                        .Where(e => e.OwnerId == _userId)// filter  the database. e is for entity
                         .Select(
                             e =>
                                 new NoteListItem
@@ -88,7 +88,7 @@ namespace ElevenNote.Services
 
                 entity.Title = model.Title;
                 entity.Content = model.Content;
-                entity.ModifiedUtc = DateTimeOffset.UtcNow;// we dont' have a proprety for modifiedUTC?
+                entity.ModifiedUtc = DateTimeOffset.UtcNow;
 
                 return ctx.SaveChanges() == 1;
             }
