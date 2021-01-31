@@ -26,7 +26,8 @@ namespace ElevenNote.Services
                     OwnerId = _userId,
                     Title = model.Title,
                     Content = model.Content,
-                    CreatedUtc = DateTimeOffset.Now
+                    CategoryId=model.CategoryId,// Added after having Category
+                    CreatedUtc = DateTimeOffset.Now,
                 };
 
             using (var ctx = new ApplicationDbContext())
@@ -51,7 +52,8 @@ namespace ElevenNote.Services
                                 {
                                     NoteId = e.NoteId,
                                     Title = e.Title,
-                                    CreatedUtc = e.CreatedUtc
+                                    CreatedUtc = e.CreatedUtc,
+                                    CategoryName= e.Category.CategoryName, //Added after having cstegory
                                 }
                         );
 
@@ -72,6 +74,7 @@ namespace ElevenNote.Services
                         NoteId = entity.NoteId,
                         Title = entity.Title,
                         Content = entity.Content,
+                        CategoryName=entity.Category.CategoryName,//Added after having category
                         CreatedUtc = entity.CreatedUtc,
                         ModifiedUtc = entity.ModifiedUtc
                     };
@@ -88,6 +91,7 @@ namespace ElevenNote.Services
 
                 entity.Title = model.Title;
                 entity.Content = model.Content;
+                entity.CategoryId = model.CategoryId;// Added after having category
                 entity.ModifiedUtc = DateTimeOffset.UtcNow;
 
                 return ctx.SaveChanges() == 1;
