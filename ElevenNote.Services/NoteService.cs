@@ -18,7 +18,7 @@ namespace ElevenNote.Services
         }
 
         //This will create an instance of Note
-        public bool CreateNote(NoteCreate model)
+        public bool CreateNote(NoteCreate model)//We don't have to create an Id The service and Data layer will work on that.
         {
             var entity =
                 new Note()
@@ -53,7 +53,7 @@ namespace ElevenNote.Services
                                     NoteId = e.NoteId,
                                     Title = e.Title,
                                     CreatedUtc = e.CreatedUtc,
-                                    CategoryName= e.Category.CategoryName, //Added after having cstegory
+                                    CategoryName= e.Category.CategoryName, // Was Added after having category
                                 }
                         );
 

@@ -16,6 +16,6 @@ namespace ElevenNote.Models
 
         [MaxLength(8000)]
         public string Content { get; set; }
-        public int CategoryId { get; set; }
+        public int CategoryId { get; set; }// Was Added After Having Category
     }
 }

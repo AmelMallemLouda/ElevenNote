@@ -15,7 +15,7 @@ namespace ElevenNote.WebAPI.Controllers
     {
         private NoteService CreateNoteService()
         {
-            var userId = Guid.Parse(User.Identity.GetUserId());
+            var userId = Guid.Parse(User.Identity.GetUserId());//?
             var noteService = new NoteService(userId);
             return noteService;
         }
@@ -35,7 +35,7 @@ namespace ElevenNote.WebAPI.Controllers
             if (!service.CreateNote(note))
                 return InternalServerError();
 
-            return Ok();
+            return Ok("The note was successfullu created");
         }
         public IHttpActionResult Get(int id)
         {

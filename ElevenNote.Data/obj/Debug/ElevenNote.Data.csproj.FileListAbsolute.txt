@@ -33,6 +33,3 @@ C:\Users\Louda\source\repos\ElevenNote\ElevenNote.Data\obj\Debug\ElevenNote.Data
 C:\Users\Louda\source\repos\ElevenNote\ElevenNote.Data\obj\Debug\ElevenNote.Data.csproj.CopyComplete
 C:\Users\Louda\source\repos\ElevenNote\ElevenNote.Data\obj\Debug\ElevenNote.Data.dll
 C:\Users\Louda\source\repos\ElevenNote\ElevenNote.Data\obj\Debug\ElevenNote.Data.pdb
-C:\Users\Louda\source\repos\ElevenNote\ElevenNote.Data\obj\Debug\ElevenNote.Data.Migrations.InitialCreate.resources
-C:\Users\Louda\source\repos\ElevenNote\ElevenNote.Data\obj\Debug\ElevenNote.Data.csproj.GenerateResource.cache
-C:\Users\Louda\source\repos\ElevenNote\ElevenNote.Data\obj\Debug\ElevenNote.Data.Migrations.FirstMigration.resources
