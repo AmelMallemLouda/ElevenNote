@@ -21,6 +21,7 @@ namespace ElevenNote.Data
 
         [Required]
         public string Content { get; set; }
+        
 
         [Required]
         [Display(Name = "Created")]

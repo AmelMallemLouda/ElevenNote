@@ -10,9 +10,9 @@ namespace ElevenNote.Services
 {
     public class NoteService
     {
-        private readonly Guid _userId;
+        private readonly Guid _userId;//application user Id(we'll get whatever the user who's loged in has created).
 
-        public NoteService(Guid userId)
+        public NoteService(Guid userId)// Take the value of the field
         {
             _userId = userId;
         }
@@ -21,7 +21,7 @@ namespace ElevenNote.Services
         public bool CreateNote(NoteCreate model)//We don't have to create an Id The service and Data layer will work on that.
         {
             var entity =
-                new Note()
+                new Note()// table of data that holds notes, and I am crearting a new one
                 {
                     OwnerId = _userId,
                     Title = model.Title,
@@ -32,28 +32,28 @@ namespace ElevenNote.Services
 
             using (var ctx = new ApplicationDbContext())
             {
-                ctx.Notes.Add(entity);
-                return ctx.SaveChanges() == 1;
+                ctx.Notes.Add(entity);// Add our entity to the note table
+                return ctx.SaveChanges() == 1;//the number of changes that are gonna be made to the database(we only chaged the note table=1)
             }
         }
         //This method will allow us to see all the notes that belong to a specific user.
 
-        public IEnumerable<NoteListItem> GetNotes()
+        public IEnumerable<NoteListItem> GetNotes()//Ienumerable is a collection of Items
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var query =
-                    ctx
+                    ctx//database
                         .Notes
-                        .Where(e => e.OwnerId == _userId)// filter  the database. e is for entity
-                        .Select(
-                            e =>
+                        .Where(e => e.OwnerId == _userId)// filter  the database and get only the notes that I have created as a user because I am the one who's loged in . e is for entity
+                        .Select(// Select a Note database
+                            e =>// declaring a variable of type note and goes to NoteListItem
                                 new NoteListItem
                                 {
                                     NoteId = e.NoteId,
                                     Title = e.Title,
                                     CreatedUtc = e.CreatedUtc,
-                                    CategoryName= e.Category.CategoryName, // Was Added after having category
+                                    CategoryName= e.Category.CategoryName, //Access Category Table then select Category name
                                 }
                         );
 
@@ -67,7 +67,8 @@ namespace ElevenNote.Services
                 var entity =
                     ctx
                         .Notes
-                        .Single(e => e.NoteId == id && e.OwnerId == _userId);
+                        //.Single to make sure there is one owner that is == to user id and one noteId that has the Id 
+                        .Single(e => e.NoteId == id && e.OwnerId == _userId); // The ownerId should match the userId and noteId shd match Id
                 return
                     new NoteDetail
                     {

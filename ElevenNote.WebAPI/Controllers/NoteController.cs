@@ -32,7 +32,7 @@ namespace ElevenNote.WebAPI.Controllers
 
             var service = CreateNoteService();
 
-            if (!service.CreateNote(note))
+            if (!service.CreateNote(note))// Checking a condition(If it cteates or not)
                 return InternalServerError();
 
             return Ok("The note was successfullu created");
